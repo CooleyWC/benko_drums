@@ -2,8 +2,15 @@ import {useState} from 'react';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import './carousel-slider.css'
+import dashboard from './assets/images/dashboard.png'
+import faculty from './assets/images/faculty.png'
+import instructor from './assets/images/instructor.png'
+import landing_page from './assets/images/landing_page.png'
+import lesson_form from './assets/images/lesson_form.png'
 
-function ImageCarousel({images}) {
+const images = [dashboard, faculty, instructor, landing_page, lesson_form]
+
+function ImageCarousel() {
 
     const [imageIndex, setImageIndex] = useState(0)
 
@@ -41,9 +48,6 @@ function ImageCarousel({images}) {
                     />
                 ))}
             </div>
-
-
-            {/* <img src={images[imageIndex]} className='carousel-slider-img'/> */}
             
             <button onClick={prev} className='carousel-slider-btn' style={{left: 0}}>
                 <ChevronLeftIcon />
