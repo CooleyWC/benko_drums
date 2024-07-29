@@ -1,33 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import ImageCarousel from './ImageCarousel'
+import dashboard from './assets/images/dashboard.png'
+import faculty from './assets/images/faculty.png'
+import instructor from './assets/images/instructor.png'
+import landing_page from './assets/images/landing_page.png'
+import lesson_form from './assets/images/lesson_form.png'
+
+const images = [dashboard, faculty, instructor, landing_page, lesson_form]
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div style={{
+        maxWidth:'1200px', 
+        width:'100%', 
+        // try aspect ratio instead of height
+        height: '500', 
+        margin: '0 auto'}}>
+        <ImageCarousel images={images}/>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      
     </>
   )
 }
