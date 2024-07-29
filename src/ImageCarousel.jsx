@@ -30,7 +30,20 @@ function ImageCarousel({images}) {
     return (
         <>
         <div style={{width: '100%', height: '100%', position: 'relative'}}>
-            <img src={images[imageIndex]} className='carousel-slider-img'/>
+
+            <div style={{width: '100%', height: '100%', display: 'flex', overflow: 'hidden'}}>
+                {images.map(imageItem => (
+                    <img 
+                        key={imageItem}
+                        src={imageItem}
+                        className='carousel-slider-img'
+                        style={{translate: `${-100 * imageIndex}%`}}
+                    />
+                ))}
+            </div>
+
+
+            {/* <img src={images[imageIndex]} className='carousel-slider-img'/> */}
             
             <button onClick={prev} className='carousel-slider-btn' style={{left: 0}}>
                 <ChevronLeftIcon />
