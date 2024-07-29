@@ -8,7 +8,13 @@ function ImageCarousel({images}) {
     const [imageIndex, setImageIndex] = useState(0)
 
     const next = () => {
-        
+        setImageIndex(index => {
+            if(index === images.length -1){
+                return 0
+            } else {
+                return index + 1
+            }
+        })
     }
 
     const prev = () => {
