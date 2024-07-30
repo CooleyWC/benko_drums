@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import './carousel-slider.css'
@@ -33,6 +33,13 @@ function ImageCarousel() {
             }
         })
     }
+
+    useEffect(()=>{
+        let slider = setInterval(()=>{
+            setImageIndex(imageIndex + 1)
+        }, 9000)
+        return ()=> clearInterval(slider)
+    }, [imageIndex])
 
     return (
         <>
