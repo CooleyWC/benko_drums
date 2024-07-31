@@ -4,8 +4,6 @@
     box-sizing: border-box;
 }
 
-
-
 .carousel-slider-img {
     object-fit: cover;
     width: 100%;
@@ -20,8 +18,8 @@
     all: unset;
     display: block;
     position: absolute;
-    top: 0;
-    bottom: 0;
+    /* top: 0;
+    bottom: 0; */
     padding: 1rem;
     cursor: pointer;
     transition: background-color 100ms ease-in-out;
@@ -37,5 +35,23 @@
     fill: 'black';
     width: 2rem;
     height: 2rem;
+}
+
+.carousel-dot-btn {
+    all: unset;
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    width: 1rem;
+    height: 1rem;
+    transition: background-color 100ms ease-in-out;
+    outline: none;
+}
+
+.carousel-dot-btn > * {
+    stroke: white;
+    fill: black;
+    height: 100%;
+    width: 100%;
 
 }

@@ -7,6 +7,8 @@ import faculty from './assets/images/faculty.png'
 import instructor from './assets/images/instructor.png'
 import landing_page from './assets/images/landing_page.png'
 import lesson_form from './assets/images/lesson_form.png'
+import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
+import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 
 const images = [dashboard, faculty, instructor, landing_page, lesson_form]
 
@@ -62,6 +64,23 @@ function ImageCarousel() {
             <button onClick={next} className='carousel-slider-btn' style={{right: 0}}>
                 <ChevronRightIcon />
             </button>
+            <div className='carousel-dot-btn' style={{
+                position: 'absolute',
+                bottom: '.5rem',
+                left: '50%',
+                translate: '-50%',
+                display: 'flex',
+                gap: '.25rem'
+            }}>
+                {images.map((_, index)=>(
+                    <button 
+                    key={index} 
+                    onClick={()=> setImageIndex(index)}
+                    >
+                        {index === imageIndex ? <RadioButtonCheckedIcon/> : <RadioButtonUncheckedIcon />}
+                    </button>
+                ))}
+            </div>
         </div>
         </>
     );
