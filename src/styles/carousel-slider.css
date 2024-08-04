@@ -1,0 +1,86 @@
+.carousel {
+    display: flex;
+    height: 400px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.carousel_wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel_card {
+    display: flex;
+    flex: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(.8);
+    transition: .8s ease-in-out;
+}
+
+.carousel_card-active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: visible;
+}
+
+.card_image {
+    width: 100%;
+    object-fit: cover;
+}
+
+.prev_btn, .next_btn {
+    position: absolute;
+    font-size: 40px;
+    top: 100%;
+    /* bottom: 0%; */
+    transform: translate(0, -50%);
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-top: 40px;
+}
+
+.prev_btn {
+    left: 15px;
+}
+
+.next_btn {
+    right: 15px
+}
+
+.dot_btns_wrapper {
+    position: absolute;
+    top: 108%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.dot_btns {
+    height: 10px;
+    width: 10px;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.dot_btns:hover {
+    transform: scale(1.2);
+}
+
+.dot_btns-active {
+    background-color: steelblue;
+}
+
