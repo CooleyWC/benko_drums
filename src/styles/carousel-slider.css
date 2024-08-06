@@ -35,11 +35,10 @@
     object-fit: cover;
 }
 
-.prev_btn, .next_btn {
+/* .prev_btn, .next_btn {
     position: absolute;
     font-size: 40px;
     top: 100%;
-    /* bottom: 0%; */
     transform: translate(0, -50%);
     background-color: white;
     display: flex;
@@ -57,11 +56,11 @@
 
 .next_btn {
     right: 15px
-}
+} */
 
 .dot_btns_wrapper {
     position: absolute;
-    top: 108%;
+    top: 104%;
     left: 50%;
     transform: translate(-50%, 0);
 }

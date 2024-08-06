@@ -17,9 +17,9 @@ function ImgCarousel() {
         }, 9000)
     }, )
 
-    const handlePrevBtn = () => {
-        setCurrentIndex(currentIndex === 0 ? images.length-1 : currentIndex -1)
-    }
+    // const handlePrevBtn = () => {
+    //     setCurrentIndex(currentIndex === 0 ? images.length-1 : currentIndex -1)
+    // }
 
     const handleNextBtn = () => {
         setCurrentIndex(currentIndex === images.length-1 ? 0 : currentIndex +1)
@@ -40,8 +40,8 @@ function ImgCarousel() {
                     </div>
                     )
                 })}
-                <div className='prev_btn' onClick={handlePrevBtn}><ChevronLeftIcon/></div>
-                <div className='next_btn' onClick={handleNextBtn}><ChevronRightIcon/></div>
+                {/* <div className='prev_btn' onClick={handlePrevBtn}><ChevronLeftIcon/></div>
+                <div className='next_btn' onClick={handleNextBtn}><ChevronRightIcon/></div> */}
                 <div className='dot_btns_wrapper'>
                     {images.map((_, index)=>{
                         return (
