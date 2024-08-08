@@ -2,7 +2,7 @@ import React from 'react';
 
 function Compositions() {
     return (
-        <div>
+        <div style={{color: 'white', marginTop: '100px'}}>
             Compositions
         </div>
     );

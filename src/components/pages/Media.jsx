@@ -2,7 +2,7 @@ import React from 'react';
 
 function Media() {
     return (
-        <div>
+        <div style={{color: 'white', marginTop: '100px'}}>
             Media
         </div>
     );
