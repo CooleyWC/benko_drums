@@ -1,6 +1,4 @@
 import {useState, useEffect} from 'react';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import '../styles/carousel-slider.css'
 import {images} from './ImageData'
 
@@ -40,8 +38,6 @@ function ImgCarousel() {
                     </div>
                     )
                 })}
-                {/* <div className='prev_btn' onClick={handlePrevBtn}><ChevronLeftIcon/></div>
-                <div className='next_btn' onClick={handleNextBtn}><ChevronRightIcon/></div> */}
                 <div className='dot_btns_wrapper'>
                     {images.map((_, index)=>{
                         return (
