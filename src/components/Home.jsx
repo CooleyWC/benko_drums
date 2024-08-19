@@ -4,9 +4,9 @@ import ImgCarousel from './ImgCarousel'
 function Home() {
     return (
         <>
-        <div className='bg-slate-600 min-h-screen'>
-            <div style={{display: 'flex', justifyContent: 'center'}}>
-                <h1 className='text-3xl font-bold'>Tom Benko Drums</h1>
+        <div className='bg-[#0B090A] min-h-screen'>
+            <div className='flex justify-center p-10'>
+                <h1 className='text-5xl text-[#f5f3f4] font-sans'>Tom Benko Drums</h1>
             </div>
             <div style={{display: 'flex', justifyContent: 'center'}}>
                 <ImgCarousel />
