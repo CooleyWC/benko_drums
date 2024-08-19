@@ -1,68 +1,68 @@
 import React, {useState} from 'react';
 import {NavLink} from 'react-router-dom';
 import { IoClose, IoMenu } from "react-icons/io5";
-import '../styles/navbar-styles.css'
-
 
 function NavBar() {
 
-    const [showMenu, setShowMenu] = useState(false);
-    
-    const toggleMenu = () => {
-        setShowMenu(!showMenu)
-    }
+    const [isOpen, setIsOpen] = useState(false);
 
-    const closeMenuOnMobile = () => {
-        if(window.innerWidth <= 1500) {
-            setShowMenu(false);
-        }
+    const handleCloseMenu = () => {
+        setIsOpen(false)
     }
 
     return (
-        <header className='header'>
-            <nav className='nav'>
-                <NavLink to='/' className='site_title'>
-                    Tom Benko
-                </NavLink>
-
-                <div
-                    className={`nav__menu ${showMenu ? 'show-menu': ''}`}
-                    id='nav_menu'
-                >
-                    <ul className='nav__list'>
-                        <li className='nav__item'>
-                            <NavLink to='/about' className='nav__link' onClick={closeMenuOnMobile}>
-                                About
-                            </NavLink>
-                        </li>
-                        <li className='nav__item'>
-                            <NavLink to='/media' className='nav__link' onClick={closeMenuOnMobile}>
-                                Media
-                            </NavLink>
-                        </li>
-                        <li className='nav__item'>
-                            <NavLink to='/compositions' className='nav__link' onClick={closeMenuOnMobile}>
-                                Compositions
-                            </NavLink>
-                        </li>
-                        <li className='nav__item'>
-                            <NavLink to='/contact' className='nav__link' onClick={closeMenuOnMobile}>
-                                Contact
-                            </NavLink>
-                        </li>
-                    </ul>
-                    <div className='nav__close' id='nav-close' onClick={toggleMenu}>
-                        <IoClose />
-
-                    </div>
+       <>
+       <header className="bg-[#161a1d] sm:flex sm:justify-between sm:items-center sm:p-4">
+            <section className="flex justify-between p-4 sm:p-0 items-center">
+                <div>
+                    <NavLink to='/' onClick={handleCloseMenu} className='text-3xl text-[#f5f3f4] hover:animate-pulse'>Tom Benko</NavLink>
                 </div>
-                <div className='nav__toggle' id='nav-toggle' onClick={toggleMenu}>
-                    <IoMenu />
+                <div className='sm:hidden'>
+                    <button 
+                        type='button' 
+                        onClick={()=>setIsOpen(!isOpen)} 
+                        className={`text-3xl focus:outline-none transform transition-transform duration-300 active:scale-150 ${isOpen ? 'text-white': 'text-gray-300 '} hover:text-white`}
+                    >
+                        {isOpen ? <IoClose /> : <IoMenu />}
+                    </button>
                 </div>
-
-            </nav>
+            </section>
+                <div className={`${isOpen ? 'block px-2 pt-2 pb-4': 'hidden'} sm:flex sm:p-0`}>
+                    <NavLink 
+                        to='/about' 
+                        onClick={handleCloseMenu} 
+                        className='block px-4 py-1 text-[#f5f3f4] font-sans hover:text-[#e5383b] transition-colors ease-in-out'
+                    >
+                        ABOUT
+                    </NavLink>
+                    <NavLink 
+                        to='/media' 
+                        onClick={handleCloseMenu} 
+                        className='block px-4 py-1 text-[#f5f3f4] font-sans hover:text-[#e5383b] transition-colors ease-in-out'
+                    >
+                        MEDIA
+                    </NavLink>
+                    <NavLink 
+                        to='/compositions' 
+                        onClick={handleCloseMenu} 
+                        className='block px-4 py-1 text-[#f5f3f4] font-sans hover:text-[#e5383b] transition-colors ease-in-out'
+                    >
+                            COMPOSITIONS
+                    </NavLink>
+                    <NavLink 
+                        to='/contact' 
+                        onClick={handleCloseMenu} 
+                        className='block px-4 py-1 text-[#f5f3f4] font-sans hover:text-[#e5383b] transition-colors ease-in-out'
+                    >
+                        CONTACT
+                    </NavLink>
+            </div>
         </header>
+       </>
     );
 }
 
 export default NavBar;
+
+
+// https://coolors.co/palette/0b090a-161a1d-660708-a4161a-ba181b-e5383b-b1a7a6-d3d3d3-f5f3f4-ffffff
