@@ -2,7 +2,7 @@ import React from 'react';
 
 function About() {
     return (
-        <div style={{color: 'white', marginTop: '100px'}}>
+        <div style={{color: 'black', marginTop: '200px'}}>
             About
         </div>
     );
