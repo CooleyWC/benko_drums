@@ -1,9 +1,8 @@
+
 import {useState, useEffect} from 'react';
 import {images} from './ImageData'
 
-
 function ImgCarousel() {
-
     const [currentIndex, setCurrentIndex] = useState(0);
     const [autoPlay, setAutoPlay] = useState(true);
     let timeOut = null
