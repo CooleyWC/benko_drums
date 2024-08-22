@@ -1,15 +1,25 @@
 import React from 'react';
-import ImgCarousel from './ImgCarousel'
+import ImgCarousel from './ImgCarousel';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
+
+    let navigate = useNavigate()
+
     return (
         <>
         <div className='bg-[#0B090A] min-h-screen'>
-            <div className='flex justify-center p-10'>
-                <h1 className='text-5xl text-[#f5f3f4] font-sans'>Tom Benko Drums</h1>
+            <div className='flex-col text-center justify-center p-10'>
+                <h1 className='text-6xl text-[#f5f3f4] font-sans pb-3'>Tom Benko</h1>
+                <p className='text-lg text-[#f5f3f4] font-sans'>Percussionist | Composer | Educator | Curator</p>
             </div>
-            <div style={{display: 'flex', justifyContent: 'center'}}>
+            <div className='flex justify-center'>
                 <ImgCarousel />
+            </div>
+            <div className='bg-[#D3D3D3] max-w-[1400px] m-auto flex flex-col items-center'>
+                <h1 className='text-3xl text-center p-3'>About Tom</h1>
+                <p className='px-7 py-4'>Tom Benko resides in Chicago working as a drummer, composer, educator and curator. Tom performs with Blue Man Group Chicago at the Briar Street Theater as one of their drummers and is the Briar Street Theater Drum School Teacher helping develop new Blue Man specifically with their drumming abilities. As a freelancer, Tom holds down the drum chair for KevinPresbrey, Greg Hyde, Sam Rae, and Taylor Rodgers and curates a bi-montly music series, Emanation, focused on diversity and eclecticism of Chicago’s music scene. As a composer and clinician, Tomtours as a soloist performing original works for electro-acoustic drum kit and built percussion. </p> 
+                <button className='bg-[#A4161A] hover:bg-[#660708] transition ease-in-out delay-150 text-white py-2 px-4 rounded mb-2' onClick={()=>navigate('/about')}>Learn More</button>
             </div>
         </div>
         </>
