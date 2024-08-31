@@ -5,7 +5,6 @@ import { TbPlayerSkipForward } from "react-icons/tb";
 import { TbPlayerSkipBack } from "react-icons/tb";
 import { TbPlayerPause } from "react-icons/tb";
 import { TbPlayerPlay } from "react-icons/tb";
-import ambientMusic from '../../../assets/audio/inslowmotion.mp3'
 import guitar from '../../../assets/audio/guitar.mp3'
 
 // import '../media/audio.css'
@@ -21,8 +20,10 @@ function Media() {
   const [isPlaying, setIsPlaying] = useState(true)
   const [duration, setDuration] = useState('')
   const [timeCounter, setTimeCounter] = useState(0)
-  //Replace value with first song on the list when it's time to use the real audio
-  const [selectedSong, setSelectedSong] = useState(guitar)
+  //Replace selected song value with first song on the list when it's time to use the real audio
+  const [selectedAudio, setSelectedAudio] = useState(guitar)
+  const [selectedSongInfo, setSelectedSongInfo] = useState({})
+  const [count, setCount] = useState(1)
   const audio = useRef()
 
   const playPause = () => {
@@ -39,21 +40,32 @@ function Media() {
   }
 
   const updateCurrentTime = (e) => {
-    setTimeCounter(Math.floor(e.target.currentTime))
+    setTimeCounter(Math.floor(audio.current.currentTime))
     //displays the time next to range input
     const currentTime = calculateTime(audio.current.duration - Math.floor(e.target.currentTime))
     setDuration(currentTime)
   }
 
-  const handleSelectedSong = (song) => {
-    setSelectedSong(song)
+  const handleSelectedAudio = (song) => {
+    setSelectedAudio(song.audio)
+    //When a song is clicked the song info is set to this variable
+    setSelectedSongInfo(song)
   }
 
+  const handleBackSkip = () => {
+    audio.current.currentTime = 0
+  }
+
+  const handleForwardSkip = () => {
+
+  }
   return (
     <div className='container mx-auto sm:px-40 md:px-40 lg:px-52'>{/* mx-auto: centers container. px-4:adds horizontal padding */}
+
+      {/**Audio and Controls */}
       <audio
         ref={audio}
-        src={selectedSong}
+        src={selectedAudio}
         preload='metadata'
 
         //onLoadedMetadata handles calculating the time duration
@@ -64,9 +76,9 @@ function Media() {
       <div>
         {/**Audio Player */}
         <div className='flex'>
-          {/**Go back */}
+          {/**Back Skip */}
           <div>
-            <button><TbPlayerSkipBack /></button>
+            <button onClick={handleBackSkip}><TbPlayerSkipBack /></button>
           </div>
 
           {/**play & pause */}
@@ -74,9 +86,9 @@ function Media() {
             <button onClick={playPause}> {isPlaying ? <TbPlayerPlay /> : <TbPlayerPause />} </button>
           </div>
 
-          {/**Go Forward */}
+          {/**Forward Skip */}
           <div>
-            <button><TbPlayerSkipForward /></button>
+            <button onClick={handleForwardSkip}><TbPlayerSkipForward /></button>
           </div>
           <div>
             <input
@@ -89,11 +101,13 @@ function Media() {
           <div>{duration}</div>
         </div>
 
+
+
         {/* Playlist */}
         {songs.map(songObj => {
           return (
             <div className='pb-1' key={songObj.song}>
-              <SongCard song={songObj} handleSelectedSong={handleSelectedSong} />
+              <SongCard song={songObj} handleSelectedAudio={handleSelectedAudio} />
             </div>
           )
         })}
