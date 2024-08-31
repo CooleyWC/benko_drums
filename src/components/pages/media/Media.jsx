@@ -6,7 +6,7 @@ import { TbPlayerSkipBack } from "react-icons/tb";
 import { TbPlayerPause } from "react-icons/tb";
 import { TbPlayerPlay } from "react-icons/tb";
 import ambientMusic from '../../../assets/audio/inslowmotion.mp3'
-import '../media/audio.css'
+// import '../media/audio.css'
 
 const calculateTime = (secs) => {
   const minutes = Math.floor(secs / 60);
@@ -16,20 +16,33 @@ const calculateTime = (secs) => {
 }
 
 function Media() {
-  const [isPlay, setIsPlay] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(true)
   const [duration, setDuration] = useState('')
   const [timeCounter, setTimeCounter] = useState(0)
   const audio = useRef()
 
+
+  const playPause = () => {
+    if (isPlaying) {
+      audio.current.play()
+      setIsPlaying(false)
+    } else {
+      audio.current.pause()
+      setIsPlaying(true)
+    }
+  }
   const handleLoadedMetaData = () => {
     setDuration(calculateTime(audio.current.duration))
   }
+
+
   const updateCurrentTime = (e) => {
     setTimeCounter(Math.floor(e.target.currentTime))
     //displays the time next to range input
     const currentTime = calculateTime(audio.current.duration - Math.floor(e.target.currentTime))
     setDuration(currentTime)
   }
+
   return (
     <div className='container mx-auto sm:px-40 md:px-40 lg:px-52'>{/* mx-auto: centers container. px-4:adds horizontal padding */}
       <audio
@@ -37,9 +50,9 @@ function Media() {
         src={ambientMusic}
         preload='metadata'
         loop
-        //onLoadedMetadata will handle calculating the time duration
+        //onLoadedMetadata handles calculating the time duration
         onLoadedMetadata={handleLoadedMetaData}
-        //onTimeUpdate will update the time as the song is playing
+        //onTimeUpdate updates the time as the song is playing
         onTimeUpdate={updateCurrentTime}
       ></audio>
       <div>
@@ -52,7 +65,7 @@ function Media() {
 
           {/**play & pause */}
           <div>
-            <button onClick={() => setIsPlay(!isPlay)}> {isPlay ? <TbPlayerPause /> : <TbPlayerPlay />} </button>
+            <button onClick={playPause}> {isPlaying ? <TbPlayerPlay /> : <TbPlayerPause />} </button>
           </div>
 
           {/**Go Forward */}
@@ -61,11 +74,12 @@ function Media() {
           </div>
           <div>
             <input
-              className='appearance-none'
               type="range"
               defaultValue={timeCounter}
             />
           </div>
+
+          <div>{duration}</div>
         </div>
 
         {/* Playlist */}
