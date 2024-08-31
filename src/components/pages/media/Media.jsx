@@ -23,7 +23,6 @@ function Media() {
   //Replace selected song value with first song on the list when it's time to use the real audio
   const [selectedAudio, setSelectedAudio] = useState(guitar)
   const [selectedSongInfo, setSelectedSongInfo] = useState({})
-  const [count, setCount] = useState(1)
   const audio = useRef()
 
   const playPause = () => {
@@ -59,6 +58,11 @@ function Media() {
   const handleForwardSkip = () => {
 
   }
+
+  const handleDoubleBackSkip = () => {
+
+  }
+
   return (
     <div className='container mx-auto sm:px-40 md:px-40 lg:px-52'>{/* mx-auto: centers container. px-4:adds horizontal padding */}
 
@@ -78,7 +82,7 @@ function Media() {
         <div className='flex'>
           {/**Back Skip */}
           <div>
-            <button onClick={handleBackSkip}><TbPlayerSkipBack /></button>
+            <button onClick={handleBackSkip} onDoubleClick={handleDoubleBackSkip}><TbPlayerSkipBack /></button>
           </div>
 
           {/**play & pause */}
