@@ -6,6 +6,7 @@ import { TbPlayerSkipBack } from "react-icons/tb";
 import { TbPlayerPause } from "react-icons/tb";
 import { TbPlayerPlay } from "react-icons/tb";
 import ambientMusic from '../../../assets/audio/inslowmotion.mp3'
+import '../media/audio.css'
 
 const calculateTime = (secs) => {
   const minutes = Math.floor(secs / 60);
@@ -58,11 +59,13 @@ function Media() {
           <div>
             <button><TbPlayerSkipForward /></button>
           </div>
-          <input
-            type="range"
-            defaultValue={timeCounter}
-          />
-
+          <div>
+            <input
+              className='appearance-none'
+              type="range"
+              defaultValue={timeCounter}
+            />
+          </div>
         </div>
 
         {/* Playlist */}
