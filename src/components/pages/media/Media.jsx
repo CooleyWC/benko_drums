@@ -21,8 +21,7 @@ function Media() {
   const [duration, setDuration] = useState('')
   const [timeCounter, setTimeCounter] = useState(0)
   //Replace selected song value with first song on the list when it's time to use the real audio
-  const [selectedAudio, setSelectedAudio] = useState(guitar)
-  const [selectedSongInfo, setSelectedSongInfo] = useState({})
+  const [selectedSongInfo, setSelectedSongInfo] = useState(songs[0])
   const audio = useRef()
 
   const playPause = () => {
@@ -46,7 +45,6 @@ function Media() {
   }
 
   const handleSelectedAudio = (song) => {
-    setSelectedAudio(song.audio)
     //When a song is clicked the song info is set to this variable
     setSelectedSongInfo(song)
   }
@@ -60,7 +58,16 @@ function Media() {
   }
 
   const handleDoubleBackSkip = () => {
+    let index = songs.findIndex(song => song.song === selectedSongInfo.song)
 
+    if (index === 0) {
+      setSelectedSongInfo(songs[songs.length - 1])
+    } else {
+      setSelectedSongInfo(songs[index - 1])
+    }
+
+    audio.current.currentTime = 0
+    setIsPlaying(true)
   }
 
   return (
@@ -69,7 +76,7 @@ function Media() {
       {/**Audio and Controls */}
       <audio
         ref={audio}
-        src={selectedAudio}
+        src={selectedSongInfo.audio}
         preload='metadata'
 
         //onLoadedMetadata handles calculating the time duration
