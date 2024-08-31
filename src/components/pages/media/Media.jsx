@@ -35,6 +35,21 @@ function Media() {
     setDuration(calculateTime(audio.current.duration))
   }
 
+  //audio.readyState will return these numbers
+  // 0 – no data about the media is available.
+  // 1 – the metadata attributes of the media are available.
+  // 2 – data is available, but not enough to play more than a frame.
+  // 3 – data is available, but for a little amount of frames from the current playback position.
+  // 4 – data is available, such that the media can be played through to the end without interruption.
+
+  if (audio.readyState === 0) {
+    //you're typically not suppose to use addEventListener in react
+    //this is here in case onLoadMetadata prop in audio tag doesn't load the audio before calling 
+    //methods on audio element
+    audio.addEventListener('loadedmetadata', () => {
+      setDuration(calculateTime(audio.current.duration))
+    });
+  }
 
   const updateCurrentTime = (e) => {
     setTimeCounter(Math.floor(e.target.currentTime))
@@ -75,7 +90,7 @@ function Media() {
           <div>
             <input
               type="range"
-              defaultValue={timeCounter}
+              value={timeCounter}
             />
           </div>
 
