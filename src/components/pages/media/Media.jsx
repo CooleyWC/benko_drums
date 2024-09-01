@@ -44,7 +44,7 @@ function Media() {
     setDuration(currentTime)
   }
 
-  const handleSelectedAudio = (song) => {
+  const handleSelectedSong = (song) => {
     //When a song is clicked the song info is set to this variable
     setSelectedSongInfo(song)
   }
@@ -54,7 +54,14 @@ function Media() {
   }
 
   const handleForwardSkip = () => {
+    let index = songs.findIndex(song => song.song === selectedSongInfo.song)
+    if (index === songs[songs.length - 1]) {
+      setSelectedSongInfo(songs[0])
+    } else {
+      setSelectedSongInfo(songs[index + 1])
+    }
 
+    setIsPlaying(true)
   }
 
   const handleDoubleBackSkip = () => {
@@ -118,7 +125,7 @@ function Media() {
         {songs.map(songObj => {
           return (
             <div className='pb-1' key={songObj.song}>
-              <SongCard song={songObj} handleSelectedAudio={handleSelectedAudio} />
+              <SongCard song={songObj} handleSelectedSong={handleSelectedSong} />
             </div>
           )
         })}
