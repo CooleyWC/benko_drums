@@ -16,44 +16,37 @@ const SongCard = ({ song, handleSelectedSong }) => {
       setIsPlaying(true)
     }
   }
-  const handleLoadedMetaData = () => {
-    setDuration(calculateTime(audio.current.duration))
-  }
-
-  const updateCurrentTime = (e) => {
-    setTimeCounter(Math.floor(audio.current.currentTime))
-    //displays the time next to range input
-    const currentTime = calculateTime(audio.current.duration - Math.floor(e.target.currentTime))
-    setDuration(currentTime)
-  }
   return (
     <div className='flex border border-gray-400' onClick={() => handleSelectedSong(song)}>
       <audio
         ref={audio}
         src={track}
         preload='metadata'
-
-        //onLoadedMetadata handles calculating the time duration
-        onLoadedMetadata={handleLoadedMetaData}
-        //onTimeUpdate updates the time as the song is playing
-        onTimeUpdate={updateCurrentTime}
       ></audio>
-      <img className='' width={70} height={70} src={image} />
-      <div className='flex'>
+      {/* <img className='' width={70} height={70} src={image} /> */}
+      <div className={`flex p-1 bg-[url('${image}')] bg-cover bg-contain`}>
         {/**play & pause */}
-        <div>
-          <button onClick={playPause}> {isPlaying ? <TbPlayerPlay /> : <TbPlayerPause />} </button>
+        <div className='border-2 border-white rounded-2xl pt-[3px]  text-center h-8 w-8'>
+          <button className='text-white' onClick={playPause}> {isPlaying ? <TbPlayerPlay /> : <TbPlayerPause />} </button>
         </div>
 
-
       </div>
-      <div className='flex flex-col pl-1'>
-        <span>{title}</span>
-        <span>{artist}</span>
+      <div className='flex justify-between pl-1 w-full'>
+        <div className='flex flex-col'>
+          <span className=''>{title}</span>
+          <span className='text-xs'>by {artist}</span>
+        </div>
+        <div className='flex justify-end  pt-1 '>
+          <div className='pr-1 sm:pr-1'>
+            <button>Buy</button>
+          </div>
+          <div className='pr-1 sm:pr-1'>
+            <button>Share</button>
+          </div>
+        </div>
       </div>
     </div>
   )
-
 }
 
 export default SongCard
