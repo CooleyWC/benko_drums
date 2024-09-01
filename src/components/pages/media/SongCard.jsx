@@ -23,7 +23,6 @@ const SongCard = ({ song, handleSelectedSong }) => {
         src={track}
         preload='metadata'
       ></audio>
-      {/* <img className='' width={70} height={70} src={image} /> */}
       <div className={`flex p-1 bg-[url('${image}')] bg-cover bg-contain`}>
         {/**play & pause */}
         <div className='border-2 border-white rounded-2xl pt-[3px]  text-center h-8 w-8'>
@@ -36,11 +35,11 @@ const SongCard = ({ song, handleSelectedSong }) => {
           <span className=''>{title}</span>
           <span className='text-xs'>by {artist}</span>
         </div>
-        <div className='flex justify-end  pt-1 '>
-          <div className='pr-1 sm:pr-1'>
+        <div className='flex justify-end pt-1 '>
+          <div className='pr-2'>
             <button>Buy</button>
           </div>
-          <div className='pr-1 sm:pr-1'>
+          <div className='pr-2'>
             <button>Share</button>
           </div>
         </div>

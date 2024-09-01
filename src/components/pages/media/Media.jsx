@@ -24,6 +24,7 @@ function Media() {
   return (
     <div className='container mx-auto sm:px-px md:px-10 lg:px-40'>{/* mx-auto: centers container. px-4:adds horizontal padding */}
       <div>
+        <h1>Playlist</h1>
         {/* Playlist */}
         {songs.map(songObj => {
           return (
