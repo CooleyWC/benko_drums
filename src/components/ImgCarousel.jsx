@@ -19,7 +19,7 @@ function ImgCarousel() {
 
     return (
         // carousel
-        <div className='max-w-[1400px] h-[600px] w-full m-auto py-16 px-4'
+        <div className='max-w-[1600px] h-[600px] w-full m-auto py-16 lg:px-12'
             onMouseEnter={()=>{
                 setAutoPlay(false)
                 clearInterval(timeOut)
