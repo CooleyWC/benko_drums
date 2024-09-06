@@ -1,6 +1,6 @@
 import React from 'react';
 import {BriefcaseIcon} from '@heroicons/react/24/outline'
-import {MusicalNoteIcon} from '@heroicons/react/24/outline'
+import { LiaDrumSolid } from "react-icons/lia";
 import {AcademicCapIcon} from '@heroicons/react/24/outline'
 import { useNavigate } from 'react-router-dom';
 
@@ -24,12 +24,12 @@ function CareerList() {
                 </a>
             </div>
             <div className='col-span-1 text-[#f5f3f4] flex flex-col items-center mb-5'>
-                <MusicalNoteIcon className='size-14 text-[#e5383b] mt-1 mb-2 transition delay-150 hover:text-gray-500 ease-in-out'/>
+                <LiaDrumSolid className='size-16 text-[#e5383b] mt-1 mb-2 transition delay-150 hover:text-gray-500 ease-in-out'/>
                 <h1 className='mb-4 text-2xl'>Drummer | Composer</h1>
                 <p className='text-center px-5 pb-5 leading-relaxed'>Tom plays drums in the Blue Man Group Chicago.</p>
-                <a>
+                <a href='https://linktr.ee/tombenko'>
                     <button 
-                        onClick={()=>navigate('/media')} className='text-white border-2 transition ease-in-out delay-150 hover:text-[#e5383b] py-2 px-4 rounded transform hover:scale-105 hover:border-3 hover:border-[#e5383b]'
+                         className='text-white border-2 transition ease-in-out delay-150 hover:text-[#e5383b] py-2 px-4 rounded transform hover:scale-105 hover:border-3 hover:border-[#e5383b]'
                     >
                         Check Out Tom's Drumming
                     </button>

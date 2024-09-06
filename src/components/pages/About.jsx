@@ -8,9 +8,9 @@ function About() {
             </header>
             <div className="relative min-h-screen bg-[#0B090A]">
                 <div className="absolute inset-0 sm:bg-cover sm:bg-center bg-right-top"
-                    style={{backgroundImage: "url('src/assets/images/metronome.png')"}}
+                    style={{backgroundImage: "url('src/assets/images/chi-3.png')"}}
                 >
-                    <div className='absolute inset-0 bg-black opacity-85 sm:opacity-90'></div>
+                    <div className='absolute inset-0 bg-black opacity-75 sm:opacity-80'></div>
                 </div>
                 <div className="relative grid grid-cols-1 sm:grid-cols-3 h-full pt-12 pb-10">
                     <div className='min-h-[100px]'>
