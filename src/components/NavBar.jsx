@@ -36,13 +36,6 @@ function NavBar() {
                         ABOUT
                     </NavLink>
                     <NavLink 
-                        to='/media' 
-                        onClick={handleCloseMenu} 
-                        className='block px-4 py-1 text-[#f5f3f4] font-sans hover:text-[#e5383b] transition-colors ease-in-out'
-                    >
-                        MEDIA
-                    </NavLink>
-                    <NavLink 
                         to='/compositions' 
                         onClick={handleCloseMenu} 
                         className='block px-4 py-1 text-[#f5f3f4] font-sans hover:text-[#e5383b] transition-colors ease-in-out'
