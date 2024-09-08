@@ -11,7 +11,7 @@ function Contact() {
   }
 
   return (
-    <div className='container w-96'>
+    <div className='container w-4/5 max-w-sm '>
       <header>
         <h1 className='border border-black text-center'>Contact</h1>
       </header>
