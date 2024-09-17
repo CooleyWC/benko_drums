@@ -12,21 +12,34 @@ function Modal({open, onClose}) {
         }
     }, [open])
 
+    const handleContinue = ()=>{
+        onClose
+        window.location.href='https://linktr.ee/tombenko'
+    }
+
     return (
         <dialog
             ref={ref}
             onCancel={onClose}
-            className='backdrop:bg-gray-400 backdrop:bg-opacity-70 w-full'
+            className='bg-slate-200 backdrop:bg-gray-600 backdrop:bg-opacity-90 max-w-3xl rounded'
         >
             <div className='p-4 flex flex-col items-center text-xl'>
-                <h1>You are about to leave tabdrums.com and visit his Linktree site: https://linktr.ee/tombenko</h1>
-                
+                <h1 className='text-center w-full'>You are about to leave tabdrums.com and visit his Linktree site: https://linktr.ee/tombenko</h1>
             </div>
             <div className='flex flex-col items-center'>
-                <button className='p-2 border border-green-600 mb-4 rounded'>Continue</button>
-                <button onClick={onClose} className='p-2 border border-red-600 mb-4 rounded'>Cancel</button>
+                <button 
+                    onClick={handleContinue} 
+                    className='p-2 border border-green-600 mb-4 rounded transition ease-in-out delay-150 transform hover:scale-110 hover:bg-slate-100'
+                    >
+                        Continue
+                    </button>
+                <button 
+                    onClick={onClose} 
+                    className='p-2 border border-red-600 mb-4 rounded transition ease-in-out delay-150 transform hover:scale-110 hover:bg-slate-100'
+                    >
+                        Cancel
+                </button>
             </div>
-         
         </dialog>
     );
 }
