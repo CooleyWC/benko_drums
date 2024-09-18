@@ -21,8 +21,8 @@ function Contact() {
             <div className='flex flex-col'>
               <div className='pb-4'>
                 <label
-                  for="name"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  htmlFor="name"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Name
                 </label>
                 <input
@@ -34,8 +34,8 @@ function Contact() {
               </div>
               <div className='pb-4'>
                 <label
-                  for="name"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  htmlFor="name"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Email
                 </label>
                 <input
@@ -47,8 +47,8 @@ function Contact() {
               </div>
               <div className='pb-4'>
                 <label
-                  for="name"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  htmlFor="name"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Message
                 </label>
                 <textarea
