@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 function Contact() {
 
@@ -8,6 +9,29 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    const serviceId=import.meta.env.VITE_SERVICEID
+    const templateId=import.meta.env.VITE_TEMPLATEID
+    const publicKey=import.meta.env.VITE_PUBLICKEY
+
+    const templateParams = {
+      from_email: email,
+      to_name: 'Will Cooley',
+      message: message,
+    };
+    
+    emailjs.send(serviceId, templateId, templateParams, {
+        publicKey: publicKey,
+      })
+      .then((res)=>{
+        console.log('success', res)
+        setName('')
+        setEmail('')
+        setMessage('')
+      },
+      (error)=>{
+        console.error('error', error)
+      });
   }
 
   return (
